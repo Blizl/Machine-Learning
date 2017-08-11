@@ -21,7 +21,18 @@ idx = zeros(size(X,1), 1);
 % Note: You can use a for-loop over the examples to compute this.
 %
 
-
+for i = 1:size(X,1)
+    smallest = 9999999;
+    smallest_ind = 0;
+    for j = 1:K
+        mag = norm(X(i,:) - centroids(j,:))^2;
+        if (mag< smallest)
+            smallest = mag;
+            smallest_ind = j;
+        end
+    idx(i) = smallest_ind;
+    end
+end
 
 
 
